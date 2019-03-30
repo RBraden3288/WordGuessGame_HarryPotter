@@ -1,0 +1,28 @@
+body {
+    background: url(../images/hpbackground2.jpg) repeat center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #C79F27;
+}
+
+.navbar {
+    margin-bottom: 100px;
+    opacity: .5;
+}
+
+.card-left {
+    margin-left: 35%;
+    margin-right: 35%;
+    opacity: .5;
+}
+
+.card-right {
+    margin-left: 10%;
+    margin-right: 10%;
+    opacity: .5;
+
+}
+
+.inner-card-body {
+    background-color: #000000;
+    opacity: 1;
+}
