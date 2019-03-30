@@ -15,23 +15,19 @@ var words = [
     "ravenclaw",
     "hufflepuff"
 ]
+var userGuesses = [];
+var guessesRemaining = 10;
+var letterGuess =[];
 
 // SET UP METHOD THAT GENERATES RANDOM WORD
 var randomWord = words[Math.floor(Math.random() * words.length)];
 
-// INITIATE A VARIABLE THAT RETURNS randomWord HIDDEN BY "_"
-var hiddenArray = [];
-    for (var i = 0; i < randomWord.length; i++) {
-        hiddenArray[i] = "_";
-    }
-
 // // AN ARRAY THAT LOOPS THROUGH ALL THE LETTERS
 var letterButtons = letters.length;
 
-
 // RETURNS AN INDEX OF 27
-for (var i = 0; i < letterButtons; i++) {
-    console.log(letterButtons[i]);
+for (var i = 0; i < letterButtons.length; i++) {
+    // console.log(letterButtons[i]);
 }
 
 // CREATE A FUNCTION THAT STARTS GAME WITH ANY KEY PRESSED
@@ -39,35 +35,46 @@ document.onkeyup = function(event) {
 
     // CONVERTS KEY TO LOWER CASE
     var letter = event.key.toLowerCase();
+    // console.log(letter);
+
+    //PUSHES ALL LETTERS REGARDLESS OF REPEAT
+    // userGuesses.push(letter);
+    
+    //.INCLUDES MEHTOD TO DETECT CHAR REPEAT
+    if (userGuesses.includes(letter)=== false){
+        userGuesses.push(letter);
+        // console.log(userGuesses);
+        //SUBTRACT A GUESS FROM guessesRemaining USING DECREMENT 
+        guessesRemaining--;
+        // console.log(guessesRemaining);
+        //INSERTS GUESSES REMAINING VAR INTO HTML DOC
+        $("#guessesRemaining").text("Guesses Remaining " + guessesRemaining)
+        $("#lettersChoice").text("Letters Guessed: " + userGuesses);
+    }
+    
+
+    // INITIATE A VARIABLE THAT RETURNS randomWord HIDDEN BY "_"
+    var hiddenArray = [];
+    for (var i = 0; i < randomWord.length; i++) {
+        hiddenArray[i] = "_ ";
+        //UPDATE HIDDEN ARRAY FOR VALID GUESSES
+        if (randomWord[i]=== letter) {
+            hiddenArray[i]=letter;
+            letterButtons--;
+            //++ ENSURES guessesRemaining DOESN'T GO DOWN WITH CORRECT GUESS
+            guessesRemaining++
+            //DISPLAY A CORRECT GUESS BY REPLACING "_" WITH LETTER
+            }
+        }
+    
+    //ALLOWS LETTERS TO BE SHOWN WHILE GUESSES ARE VALID
+    // GAME OVER
+    if (guessesRemaining <= 0){
+        alert("GAME OVER!");
+        confirm("Refresh to try again?")    
+    } 
 
     // INITIATE GAME WITH RANDOM word DISPLAYED BY A hiddenArray
     document.getElementById("wordBank").innerHTML= hiddenArray;
 }
-    // if (randomWord ===  ) {
-
-    // }
-
     
-
-// var letters = function(){
-//     for (i = 0; i < letters.length; i++) {
-
-//             // create a key detection that starts Game
-//     document.onkeyup = function(event) {
-            
-//         // Determines which key was pressed and defaults it to upper case
-//         var letters = event.key.toLowerCase();
-
-//         // game initiates with random word chosen from words
-//         var randomWord = words[Math.floor(Math.random() * oscarWinners.length)];
-
-//         // oscarWinners field is filled with underscores that correspond to number of letters assoc.
-//         // index of i corresponds to underscores for each field missing
-//         var hiddenArray = [];
-//         for (var i = 0; i < randomWord.length; i++) {
-//             hiddenArray[i] = "_";
-//         }
-
-//         // if letter chosen is correct then fill in underscore
-//         // Creates a new variable with correct letters
-//         var remainingLetters = randomWinner.length;

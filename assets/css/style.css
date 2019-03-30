@@ -1,28 +1,45 @@
 body {
     background: url(../images/hpbackground2.jpg) repeat center;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Playfair Display', serif;
     color: #C79F27;
+    text-align: center;
 }
 
 .navbar {
-    margin-bottom: 100px;
-    opacity: .5;
+    margin-bottom: 70px;
+    opacity: .60;
 }
 
+.container {
+    margin: 50px;
+    text-shadow: 2px 2px 2px rgb(147, 120, 40)
+}
 .card-left {
     margin-left: 35%;
     margin-right: 35%;
-    opacity: .5;
+    margin-bottom: 25px;
+    opacity: .60;
 }
 
 .card-right {
     margin-left: 10%;
     margin-right: 10%;
-    opacity: .5;
+    padding-left: 15px;
+    padding-right: 15px;
+    opacity: .60;
+}
 
+.card-header {
+    padding: 20px;
 }
 
 .inner-card-body {
     background-color: #000000;
     opacity: 1;
+}
+
+#hangman-image {
+    width: 200px;
+    position: relative;
 }

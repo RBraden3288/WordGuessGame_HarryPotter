@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Harry Potter Hangman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="../WordGuessGame_HarryPotter/assets/css/style.css">
 </head>
@@ -14,35 +18,51 @@
         <span class="navbar-brand mb-0 h1">A Game of Hangman: Harry Potter</span>
     </nav>
 
+    <!-- Score Keeper -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col wins">
+            <h1>WINS&colon;</h1>
+                <div id="win"></div>
+            </div>
+            <div class="col losses">
+            <h1>LOSSES&colon;</h1>
+                <div id="lose"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Alphabet Card-->
         <div class="card card-left" style="width: 18rem;">
             <div class="card-body">
                     <div class="card-body inner-card-body">
                         <h5 class="card-title">Choose Your Letters Wisely!</h5>
-                        <div id= "lettersChoice">Insert Letter Button Here</div>
+                        <div id= "lettersChoice">
+                            <img src="assets/images/hangman.jpg" id="hangman-image"><br>
+                            Make a guess to begin the game.
+                        </div>
                     </div>
             </div>
         </div>
-<br>
+
         <!-- Word Card -->
         <div class="card text-center card-right">
-            <div class="card-header">
-                    Choose Your Words Wisely!
+            <div class="card-header">        
             </div>
             <div class="card-body inner-card-body">
-                <h5 class="card-title">Press any letter to make a guess.</h5>
+                <h5 class="card-title">Choose Your Words Wisely!</h5>
                 <div class="card-body inner-card-body">
                     <div id= "wordBank">
-                    Insert space keys Here
                     </div>
                 </div>
             </div>
-            <div class="card-footer text-muted">
-                Guesses remaining: 
+            <div class="card-footer text-muted guesses-remaining" id="guessesRemaining">
+                Guesses Remaining: 10
             </div>
         </div>
     
 
-    <script src="../WordGuessGame_HarryPotter/assets/javascript/game.js"></script>  
+    <script src="./assets/javascript/game.js"></script>  
 </body>
 </html>
