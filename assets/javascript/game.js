@@ -1,4 +1,4 @@
-// var pageAlert= alert("Press any key to start Mr. Potter!");
+var pageAlert= alert("Press any key to start Mr. Potter!");
 
 // VARIABLES
 
@@ -18,9 +18,16 @@ var words = [
 var userGuesses = [];
 var guessesRemaining = 10;
 var letterGuess =[];
+var letterReplacement=[];   //answer array
 
 // SET UP METHOD THAT GENERATES RANDOM WORD
 var randomWord = words[Math.floor(Math.random() * words.length)];
+
+for (var i = 0; i < randomWord.length; i++) {
+    letterReplacement[i] = "_ ";
+}
+document.getElementById("wordBank").innerHTML= letterReplacement;
+
 
 // // AN ARRAY THAT LOOPS THROUGH ALL THE LETTERS
 var letterButtons = letters.length;
@@ -54,27 +61,38 @@ document.onkeyup = function(event) {
     
 
     // INITIATE A VARIABLE THAT RETURNS randomWord HIDDEN BY "_"
-    var hiddenArray = [];
+    // var hiddenArray = [];
     for (var i = 0; i < randomWord.length; i++) {
-        hiddenArray[i] = "_ ";
-        //UPDATE HIDDEN ARRAY FOR VALID GUESSES
+        // hiddenArray[i] = "_ ";
+        //UPDATES BOX FOR INCORRECT GUESSES
         if (randomWord[i]=== letter) {
-            hiddenArray[i]=letter;
+            //IDENTIFIES LETTER
+            letterReplacement[i]=letter;
             letterButtons--;
-            //++ ENSURES guessesRemaining DOESN'T GO DOWN WITH CORRECT GUESS
-            guessesRemaining++
+            //++ ENSURES guessesRemaining SCORE DOESN'T GO DOWN WITH CORRECT GUESS
+            guessesRemaining++;
             //DISPLAY A CORRECT GUESS BY REPLACING "_" WITH LETTER
+                // console.log shows that the variable "letter" & "randomWord" will affect this change
             }
         }
-    
-    //ALLOWS LETTERS TO BE SHOWN WHILE GUESSES ARE VALID
-    // GAME OVER
-    if (guessesRemaining <= 0){
-        alert("GAME OVER!");
-        confirm("Refresh to try again?")    
-    } 
 
-    // INITIATE GAME WITH RANDOM word DISPLAYED BY A hiddenArray
-    document.getElementById("wordBank").innerHTML= hiddenArray;
+        
+
+        // if (guessesRemaining < 0){
+        //     // THIS METHOD WILL DISPLAY SHOWN WORD
+            // hiddenArray.push("<br>Your word was " + randomWord);
+        // }
+
+        // RANDOM word DISPLAYED BY A hiddenArray (INITIATES GAME)
+        document.getElementById("wordBank").innerHTML= letterReplacement;
+        
+        //ALLOWS LETTERS TO BE SHOWN WHILE GUESSES ARE VALID
+        // GAME OVER
+        if (guessesRemaining <= 0){
+            alert("GAME OVER!");
+            confirm("Refresh to try again?")    
+        } 
+
+    
 }
     
